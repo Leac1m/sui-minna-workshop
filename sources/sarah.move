@@ -1,31 +1,31 @@
-module demo::bob;
+module demo::sarah;
 use sui::display;
 use sui::package;
 
 
-public struct BOB has drop {}
+public struct SARAH has drop {}
 
-public struct Bob has key, store {
+public struct Sarah has key, store {
     id: UID
 }
 
-fun init(otw: BOB, ctx: &mut TxContext) {
+fun init(otw: SARAH, ctx: &mut TxContext) {
     let publisher = package::claim(otw, ctx);
-    let mut display = display::new<Bob>(&publisher, ctx);
+    let mut display = display::new<Sarah>(&publisher, ctx);
 
     display.add(
         b"name".to_string(),
-        b"Bob the rich dog".to_string()
+        b"Sarah the fairy princess".to_string()
     );
 
     display.add(
         b"description".to_string(),
-        b"The Top Dog".to_string()
+        b"Sarah living in her palace".to_string()
     );
 
     display.add(
         b"image_url".to_string(),
-        b"https://i.ibb.co/N2KPVQCs/Gemini-Generated-Image-lx4uoclx4uoclx4u.png".to_string()
+        b"https://i.ibb.co/HLdRfdNx/Gemini-Generated-Image-hgr2izhgr2izhgr2.png".to_string()
     );
 
     // Update the display with the new data.
@@ -38,9 +38,9 @@ fun init(otw: BOB, ctx: &mut TxContext) {
 
 #[allow(lint(self_transfer))]
 public fun mint(ctx: &mut TxContext) {
-    let bob = Bob {
+    let sarah = Sarah {
         id: object::new(ctx)
     };
 
-    transfer::public_transfer(bob, ctx.sender());
+    transfer::public_transfer(sarah, ctx.sender());
 }

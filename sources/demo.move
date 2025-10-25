@@ -13,7 +13,7 @@ public fun say_hi(): String {
 }
 
 
-public fun mint_bob(value: String, ctx: &mut TxContext): BobHouse {
+public fun mint(value: String, ctx: &mut TxContext): BobHouse {
     BobHouse {
         id: object::new(ctx),
         value,
